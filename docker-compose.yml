@@ -6,8 +6,7 @@ services:
       context: .
       args:
         USERNAME: devuser
-    # IMPORTANT: CHANGE THIS to your Docker Hub or GitHub Container Registry username
-    image: dsaatools/dsaa:latest # <-- CHANGE THIS LINE
+    image: dsaatools/dsaa:latest
     container_name: dev-container
     network_mode: host
     volumes:
@@ -29,4 +28,6 @@ volumes:
   dev-data:
     driver: local
   portainer-data:
+    driver: local
+  rclone-config:  # For Mega credentials
     driver: local
