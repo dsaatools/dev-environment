@@ -12,7 +12,7 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER && newgrp docker
 
 # 2. Clone this repo
-git clone <your-repo-url> dev-env && cd dev-env
+git clone https://github.com/dsaatools/dev-environment.git dev-env && cd dev-env
 
 # 3. **IMPORTANT**: Edit manage.sh and change this line:
 #    REGISTRY_USER="YOUR_REGISTRY_USER"  # <-- Change to YOUR username
