@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  dev-container:
+    build:
+      context: .
+      args:
+        USERNAME: devuser
+    # IMPORTANT: CHANGE THIS to your Docker Hub or GitHub Container Registry username
+    image: dsaatools/dsaa:latest # <-- CHANGE THIS LINE
+    container_name: dev-container
+    network_mode: host
+    volumes:
+      - dev-data:/home/devuser
+    tty: true
+    stdin_open: true
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-data:/data
+    restart: always
+
+volumes:
+  dev-data:
+    driver: local
+  portainer-data:
+    driver: local
